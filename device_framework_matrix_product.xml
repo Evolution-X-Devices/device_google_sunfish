@@ -189,14 +189,6 @@
         </interface>
     </hal>
     <hal format="hidl" optional="true">
-        <name>hardware.google.light</name>
-        <version>1.1</version>
-        <interface>
-            <name>ILight</name>
-            <instance>default</instance>
-        </interface>
-    </hal>
-    <hal format="hidl" optional="true">
         <name>hardware.google.bluetooth.sar</name>
         <version>1.0</version>
         <interface>
@@ -281,11 +273,12 @@
             <instance>slot2</instance>
         </interface>
     </hal>
-    <!-- Pixel display HAL: declared in the device manifest but missing from any
-         framework compatibility matrix, which failed VINTF check-compat. -->
-    <hal format="aidl" optional="true">
+    <!-- Pixel display HAL. optional="false" (lopro104 f9b56e3): the composer
+         needs this service present, not merely permitted. Declaring it
+         optional="true" satisfies the VINTF build check but lets the framework
+         skip starting it, and hwcomposer then aborts in DisplayInit(). -->
+    <hal format="aidl" optional="false">
         <name>com.google.hardware.pixel.display</name>
-        <version>1</version>
         <interface>
             <name>IDisplay</name>
             <instance>default</instance>
