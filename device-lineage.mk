@@ -32,9 +32,6 @@ PRODUCT_PRODUCT_PROPERTIES += ro.opa.eligible_device=true
 PRODUCT_PACKAGES += \
     HbmSVManagerOverlay
 
-# Lineage Health
-include hardware/google/pixel/lineage_health/device.mk
-
 # LiveDisplay
 PRODUCT_PACKAGES += \
     vendor.lineage.livedisplay@2.0-service-sdm
