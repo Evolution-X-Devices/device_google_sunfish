@@ -5,7 +5,7 @@
 #
 
 # Overlays
-DEVICE_PACKAGE_OVERLAYS += $(LOCAL_PATH)/overlay-lineage
+DEVICE_PACKAGE_OVERLAYS += $(LOCAL_PATH)/overlay-evolution
 
 # Soong namespaces
 PRODUCT_SOONG_NAMESPACES += \
@@ -31,10 +31,6 @@ PRODUCT_PRODUCT_PROPERTIES += ro.opa.eligible_device=true
 # HBM
 PRODUCT_PACKAGES += \
     HbmSVManagerOverlay
-
-# Parts
-PRODUCT_PACKAGES += \
-    GoogleParts
 
 # RCS
 PRODUCT_PACKAGES += \

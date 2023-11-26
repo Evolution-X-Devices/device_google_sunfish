@@ -233,4 +233,4 @@ BOARD_SUPER_PARTITION_ERROR_LIMIT := 9231663104
 
 -include vendor/google_devices/sunfish/proprietary/BoardConfigVendor.mk
 
-include device/google/sunfish/BoardConfigLineage.mk
+include device/google/sunfish/BoardConfigEvolution.mk
