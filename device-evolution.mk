@@ -5,7 +5,7 @@
 #
 
 # Overlays
-DEVICE_PACKAGE_OVERLAYS += $(LOCAL_PATH)/overlay-lineage
+DEVICE_PACKAGE_OVERLAYS += $(LOCAL_PATH)/overlay-evolution
 
 # Soong namespaces
 PRODUCT_SOONG_NAMESPACES += \
@@ -38,10 +38,6 @@ include hardware/google/pixel/lineage_health/device.mk
 # LiveDisplay
 PRODUCT_PACKAGES += \
     vendor.lineage.livedisplay@2.0-service-sdm
-
-# Parts
-PRODUCT_PACKAGES += \
-    GoogleParts
 
 # RCS
 PRODUCT_PACKAGES += \
