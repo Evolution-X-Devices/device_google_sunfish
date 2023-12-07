@@ -180,9 +180,5 @@ PRODUCT_PACKAGES += \
 PRODUCT_PACKAGES += \
     AdaptiveSleepOverlay
 
-# Additional permissions
-PRODUCT_COPY_FILES += \
-    $(LOCAL_PATH)/permissions/privapp-permissions-launcher3.xml:$(TARGET_COPY_OUT_SYSTEM_EXT)/etc/permissions/privapp-permissions-launcher3.xml
-
 # Properties
 TARGET_VENDOR_PROP := $(LOCAL_PATH)/vendor.prop
