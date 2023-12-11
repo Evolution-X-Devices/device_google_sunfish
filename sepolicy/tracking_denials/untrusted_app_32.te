@@ -1,0 +1,1 @@
+allow untrusted_app_32 camera_prop:file { read open map getattr };
