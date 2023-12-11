@@ -257,7 +257,17 @@ IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
            <name>IGatekeeper</name>
            <instance>default</instance>
        </interface>
-   </hal>
+    </hal>
+    <!-- thermal -->
+    <hal format="hidl">
+        <name>android.hardware.thermal</name>
+        <transport>hwbinder</transport>
+        <version>2.0</version>
+        <interface>
+            <name>IThermal</name>
+            <instance>default</instance>
+        </interface>
+    </hal>
     <!-- qcrilhook -->
     <hal format="hidl">
         <name>vendor.qti.hardware.radio.qcrilhook</name>
