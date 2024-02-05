@@ -59,6 +59,9 @@ function blob_fixup() {
     product/etc/sysconfig/nexus.xml)
         sed -i 's/qulacomm/qualcomm/' "${2}"
         ;;
+    product/etc/felica/common.cfg)
+        sed -i -e '$a00000018,1' -e '/^00000014/d' -e '/^00000015/d' "${2}"
+        ;;
     esac
 }
 
