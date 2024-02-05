@@ -191,5 +191,9 @@ PRODUCT_PACKAGES += \
 PRODUCT_PACKAGES += \
     AdaptiveSleepOverlay
 
+# Permissions
+PRODUCT_COPY_FILES += \
+    $(LOCAL_PATH)/privapp-permissions-gms.xml:$(TARGET_COPY_OUT_PRODUCT)/etc/permissions/privapp-permissions-gms.xml
+
 # Properties
 TARGET_VENDOR_PROP := $(LOCAL_PATH)/vendor.prop
