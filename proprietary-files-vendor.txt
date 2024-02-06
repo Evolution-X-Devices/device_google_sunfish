@@ -282,6 +282,7 @@ vendor/etc/lowi.conf
 vendor/etc/maxx_conf_snd.ini
 vendor/etc/mdlog/default.cfg
 vendor/etc/mdlog/diag.conf
+vendor/etc/media_codecs_c2.xml
 vendor/etc/modem_stat.conf
 vendor/etc/msm_irqbalance.conf
 vendor/etc/permissions/com.google.android.camera.experimental2020_midyear.xml
