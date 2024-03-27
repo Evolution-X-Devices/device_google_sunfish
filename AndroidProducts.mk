@@ -20,5 +20,5 @@ PRODUCT_MAKEFILES := \
     $(LOCAL_DIR)/evolution_sunfish.mk
 
 COMMON_LUNCH_CHOICES := \
-    aosp_sunfish-userdebug \
-    evolution_sunfish-userdebug
+    aosp_sunfish-trunk_staging-userdebug \
+    evolution_sunfish-trunk_staging-userdebug

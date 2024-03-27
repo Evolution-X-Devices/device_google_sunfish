@@ -98,7 +98,6 @@ VENDOR_SKIP_FILES=(
     "bin/hw/android.hardware.atrace@1.0-service.pixel"
     "bin/hw/android.hardware.audio.service"
     "bin/hw/android.hardware.boot@1.2-service"
-    "bin/hw/android.hardware.camera.provider@2.7-service-google"
     "bin/hw/android.hardware.cas@1.2-service"
     "bin/hw/android.hardware.configstore@1.1-service"
     "bin/hw/android.hardware.contexthub-service.generic"
@@ -1090,6 +1089,15 @@ VENDOR_SKIP_FILES=(
     "lib64/libwifi-hal-ctrl.so"
     "lib64/libwifi-hal-qcom.so"
 
+    # Wi-Fi service
+    "bin/hw/vendor.google.wifi_ext@1.0-service-vendor"
+    "etc/init/vendor.google.wifi_ext@1.0-service.rc"
+    "etc/vintf/manifest/manifest_wifi_ext.xml"
+    "lib64/google_wifi_firmware_config_info_cc_proto.so"
+    "lib64/vendor.google.wifi_ext@1.1.so"
+    "lib64/vendor.google.wifi_ext@1.2.so"
+    "lib64/vendor.google.wifi_ext@1.3.so"
+
     # Misc interfaces
     "lib/android.frameworks.sensorservice@1.0.so"
     "lib/android.hardware.authsecret@1.0.so"
@@ -1154,6 +1162,10 @@ VENDOR_SKIP_FILES=(
     # Secure element
     "lib/ese_spi_st.so"
     "lib/libstpreprocess.so"
+
+    # Wi-Fi
+    "lib/libqsap_sdk.so"
+    "lib64/libqsap_sdk.so"
 )
 
 # Initialize the helper
