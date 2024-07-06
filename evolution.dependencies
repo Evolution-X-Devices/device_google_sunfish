@@ -4,8 +4,10 @@
     "target_path": "device/google/gs-common"
   },
   {
-    "repository": "kernel_google_msm-4.14",
-    "target_path": "kernel/google/msm-4.14"
+    "repository": "LineageOS/android_kernel_google_msm-4.14",
+    "target_path": "kernel/google/msm-4.14",
+    "branch": "lineage-21",
+    "remote": "github"
   },
   {
     "repository": "TheMuppets/proprietary_vendor_google_sunfish",
