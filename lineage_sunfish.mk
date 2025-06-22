@@ -29,4 +29,12 @@ PRODUCT_BUILD_PROP_OVERRIDES += \
 # Gapps
 TARGET_USES_MINI_GAPPS := true
 
+PRODUCT_ARTIFACT_PATH_REQUIREMENT_ALLOWED_LIST += \
+    system/priv-app/OmniStyle/OmniStyle.apk \
+    system/app/GoogleExtShared/GoogleExtShared.apk \
+    system/app/GooglePrintRecommendationService/GooglePrintRecommendationService.apk \
+    system/etc/permissions/privapp-permissions-google.xml \
+    system/priv-app/DocumentsUIGoogle/DocumentsUIGoogle.apk \
+    system/priv-app/TagGoogle/TagGoogle.apk
+
 $(call inherit-product, vendor/google/sunfish/sunfish-vendor.mk)
