@@ -26,6 +26,10 @@ PRODUCT_BUILD_PROP_OVERRIDES += \
     BuildFingerprint=google/sunfish/sunfish:13/TQ3A.230805.001.S1/10786265:user/release-keys \
     DeviceProduct=sunfish
 
+ifeq ($(WITH_GMS),false)
+PRODUCT_ARTIFACT_PATH_REQUIREMENT_ALLOWED_LIST += \
+    system/priv-app/OmniStyle/OmniStyle.apk
+else
 # Gapps
 TARGET_USES_MINI_GAPPS := true
 
@@ -36,5 +40,6 @@ PRODUCT_ARTIFACT_PATH_REQUIREMENT_ALLOWED_LIST += \
     system/etc/permissions/privapp-permissions-google.xml \
     system/priv-app/DocumentsUIGoogle/DocumentsUIGoogle.apk \
     system/priv-app/TagGoogle/TagGoogle.apk
+endif
 
 $(call inherit-product, vendor/google/sunfish/sunfish-vendor.mk)
