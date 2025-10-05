@@ -4,8 +4,10 @@
     "target_path": "device/google/gs-common"
   },
   {
-    "repository": "vendor_google_sunfish",
-    "target_path": "vendor/google/sunfish"
+    "repository": "apelete/proprietary_vendor_google_sunfish",
+    "target_path": "vendor/google/sunfish",
+    "remote" : "github-non-los",
+    "branch": "lineage-23.0"
   },
   {
     "repository": "kernel_google_msm-4.14",
