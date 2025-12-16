@@ -138,3 +138,11 @@ PRODUCT_ARTIFACT_PATH_REQUIREMENT_ALLOWED_LIST += \
     system/lib/libcodec2_hidl_plugin_stub.so \
     system/lib64/libcodec2_hidl@1.0.so \
     system/lib64/libcodec2_hidl_plugin_stub.so
+
+# AllowList for GAPPS
+PRODUCT_ARTIFACT_PATH_REQUIREMENT_ALLOWED_LIST += \
+    system/app/GoogleExtShared/GoogleExtShared.apk \
+    system/app/GooglePrintRecommendationService/GooglePrintRecommendationService.apk \
+    system/priv-app/DocumentsUIGoogle/DocumentsUIGoogle.apk \
+    system/priv-app/GoogleExtServices/GoogleExtServices.apk \
+    system/priv-app/TagGoogle/TagGoogle.apk
