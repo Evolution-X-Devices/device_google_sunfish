@@ -124,3 +124,6 @@ PRODUCT_PROPERTY_OVERRIDES += \
 # Enable zygote critical window.
 PRODUCT_PROPERTY_OVERRIDES += \
     zygote.critical_window.minute=10
+
+# ART
+PRODUCT_SYSTEM_SERVER_COMPILER_FILTER := speed-profile
