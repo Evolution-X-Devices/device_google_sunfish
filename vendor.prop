@@ -5,3 +5,4 @@ media.mediadrmservice.enable=true
 # Graphics
 ro.hardware.egl=adreno
 ro.hardware.vulkan=adreno
+ro.surface_flinger.supports_background_blur=1
