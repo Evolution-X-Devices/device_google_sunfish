@@ -28,6 +28,9 @@ PRODUCT_PROPERTY_OVERRIDES += af.fast_track_multiplier=1
 
 # ART
 PRODUCT_SYSTEM_SERVER_COMPILER_FILTER := speed-profile
+WITH_DEXPREOPT := true
+DEX_PREOPT_DEFAULT := generate-vdex-and-image
+WITH_DEXPREOPT_DEBUG_INFO := false
 
 # Enable AAudio MMAP/NOIRQ data path.
 # 1 is AAUDIO_POLICY_NEVER  means only use Legacy path.
