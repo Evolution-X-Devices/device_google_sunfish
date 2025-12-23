@@ -10,3 +10,7 @@ ro.hardware.vulkan=adreno
 ro.hwui.render_ahead=5
 debug.hwui.use_hint_manager=true
 debug.hwui.target_cpu_time_percent=30
+
+# ScrollOptimizer
+persist.sys.perf.scroll_opt=true
+persist.sys.perf.scroll_opt.heavy_app=1
