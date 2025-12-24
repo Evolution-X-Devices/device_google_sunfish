@@ -6,6 +6,7 @@ media.mediadrmservice.enable=true
 ro.hardware.egl=adreno
 ro.hardware.vulkan=adreno
 ro.surface_flinger.supports_background_blur=1
+debug.sf.enable_adpf_cpu_hint=true
 
 # HWUI
 ro.hwui.render_ahead=5
