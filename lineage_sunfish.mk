@@ -28,16 +28,18 @@ PRODUCT_BUILD_PROP_OVERRIDES += \
 
 ifeq ($(WITH_GMS),false)
 PRODUCT_ARTIFACT_PATH_REQUIREMENT_ALLOWED_LIST += \
-    system/priv-app/OmniStyle/OmniStyle.apk
+    system/apex/com.google.android.permission.apex
 else
 # Gapps
 TARGET_USES_MINI_GAPPS := true
 
 PRODUCT_ARTIFACT_PATH_REQUIREMENT_ALLOWED_LIST += \
-    system/priv-app/OmniStyle/OmniStyle.apk \
     system/app/GoogleExtShared/GoogleExtShared.apk \
     system/app/GooglePrintRecommendationService/GooglePrintRecommendationService.apk \
+    system/apex/com.google.android.permission.apex \
     system/etc/permissions/privapp-permissions-google.xml \
+    system/etc/permissions/privapp_allowlist_com.google.android.ext.services.xml \
+    system/priv-app/GoogleExtServices/GoogleExtServices.apk \
     system/priv-app/DocumentsUIGoogle/DocumentsUIGoogle.apk \
     system/priv-app/TagGoogle/TagGoogle.apk
 endif
