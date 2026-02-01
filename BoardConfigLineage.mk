@@ -19,6 +19,11 @@ AB_OTA_PARTITIONS += \
     vendor
 BOARD_VENDORIMAGE_FILE_SYSTEM_TYPE := ext4
 
+ifeq ($(WITH_GMS),false)
+# Reserve space for gapps install in Vanilla builds
+-include vendor/lineage/config/BoardConfigReservedSize.mk
+endif
+
 # SELinux
 BOARD_SEPOLICY_DIRS += device/google/sunfish/sepolicy-lineage/dynamic
 BOARD_SEPOLICY_DIRS += device/google/sunfish/sepolicy-lineage/vendor
