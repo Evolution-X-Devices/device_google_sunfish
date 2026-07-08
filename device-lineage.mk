@@ -64,6 +64,9 @@ $(call soong_config_set_bool,livedisplay_sdm,enable_dm,false)
 PRODUCT_PACKAGES += \
     GoogleParts
 
+PRODUCT_PACKAGES += \
+    RemovePackagesSunfish
+
 # RCS
 PRODUCT_PACKAGES += \
     PresencePolling \
