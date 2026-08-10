@@ -281,4 +281,14 @@
             <instance>slot2</instance>
         </interface>
     </hal>
+    <!-- Pixel display HAL: declared in the device manifest but missing from any
+         framework compatibility matrix, which failed VINTF check-compat. -->
+    <hal format="aidl" optional="true">
+        <name>com.google.hardware.pixel.display</name>
+        <version>1</version>
+        <interface>
+            <name>IDisplay</name>
+            <instance>default</instance>
+        </interface>
+    </hal>
 </compatibility-matrix>

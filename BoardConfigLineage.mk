@@ -9,6 +9,9 @@ BOARD_KERNEL_IMAGE_NAME := Image.lz4
 TARGET_COMPILE_WITH_MSM_KERNEL := true
 TARGET_KERNEL_CONFIG := sunfish_defconfig
 TARGET_KERNEL_SOURCE := kernel/google/msm-4.14
+# Build this msm-4.14 kernel with its matched Clang 12 (r416183b) instead of the
+# platform Clang 21 (r563880c), whose stricter diagnostics reject the old kernel source.
+TARGET_KERNEL_CLANG_PATH := $(abspath prebuilts/clang/kernel/$(HOST_PREBUILT_TAG)/clang-r416183b)
 TARGET_NEEDS_DTBOIMAGE := true
 
 # Partitions
