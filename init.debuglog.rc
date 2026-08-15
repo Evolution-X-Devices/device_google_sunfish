@@ -1,0 +1,22 @@
+# Boot debugging: capture a full logcat to /metadata/log.txt
+# /metadata survives a factory reset and is mounted before /data, so this
+# still gets a log when the device never reaches a booted state.
+#
+# The service is a no-op unless /metadata/start.txt exists, so this can stay
+# in the build permanently and be toggled from recovery:
+#   adb shell 'mount /metadata; touch /metadata/start.txt'
+# See debuglog.sh for details.
+
+on early-init
+    mkdir /metadata 0771 root system
+    # normally already mounted by first_stage_mount; harmless no-op if so
+    mount ext4 /dev/block/by-name/metadata /metadata noatime nosuid nodev
+    start debuglog
+
+service debuglog /vendor/bin/debuglog.sh
+    class core
+    user root
+    group root system log
+    disabled
+    seclabel u:r:su:s0
+    oneshot

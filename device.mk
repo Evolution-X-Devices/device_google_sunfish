@@ -86,6 +86,8 @@ PRODUCT_COPY_FILES += \
     $(LOCAL_PATH)/thermal-engine-$(PRODUCT_HARDWARE).conf:$(TARGET_COPY_OUT_VENDOR)/etc/thermal-engine-$(PRODUCT_HARDWARE).conf \
     $(LOCAL_PATH)/ueventd.rc:$(TARGET_COPY_OUT_VENDOR)/ueventd.rc \
     $(LOCAL_PATH)/init.ramoops.sh:$(TARGET_COPY_OUT_VENDOR)/bin/init.ramoops.sh \
+    $(LOCAL_PATH)/init.debuglog.rc:$(TARGET_COPY_OUT_VENDOR)/etc/init/init.debuglog.rc \
+    $(LOCAL_PATH)/debuglog.sh:$(TARGET_COPY_OUT_VENDOR)/bin/debuglog.sh \
 
 # Partitions
 PRODUCT_PACKAGES += \

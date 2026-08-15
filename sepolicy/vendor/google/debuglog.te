@@ -1,0 +1,8 @@
+# Boot debug logger (see device/google/sunfish/debuglog.sh).
+# The service declares seclabel u:r:su:s0, so the running process is su and
+# needs no rules of its own -- this exists only to give the script an
+# exec_type that init is permitted to execute.
+type debuglog, domain;
+type debuglog_exec, exec_type, vendor_file_type, file_type;
+
+init_daemon_domain(debuglog)
