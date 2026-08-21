@@ -103,6 +103,18 @@ BOARD_AVB_VBMETA_SYSTEM_ROLLBACK_INDEX := $(PLATFORM_SECURITY_PATCH_TIMESTAMP)
 BOARD_AVB_VBMETA_SYSTEM_ROLLBACK_INDEX_LOCATION := 1
 
 # product.img
+# Reserved sizes: LineageOS's BoardConfigReservedSize.mk defaults (?=) apply even
+# though sunfish does not include it, adding ~2.1G of padding (product up to
+# 1.9G) on top of ~3.0G of images -- over the 4.87G dynamic-partition group
+# budget, so first-stage mount fails and the device bootloops into recovery.
+# Zeroing them is lopro104's "fix booting" fix (android_device_google_sunfish
+# commit 459436a).
+BOARD_SYSTEMIMAGE_PARTITION_RESERVED_SIZE := 0
+BOARD_PRODUCTIMAGE_PARTITION_RESERVED_SIZE := 0
+BOARD_SYSTEM_EXTIMAGE_PARTITION_RESERVED_SIZE := 0
+BOARD_VENDORIMAGE_PARTITION_RESERVED_SIZE := 0
+BOARD_EXT4_SHARE_DUP_BLOCKS := true
+
 BOARD_SYSTEMIMAGE_FILE_SYSTEM_TYPE := erofs
 BOARD_PRODUCTIMAGE_FILE_SYSTEM_TYPE := erofs
 
