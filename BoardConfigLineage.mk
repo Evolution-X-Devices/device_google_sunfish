@@ -21,14 +21,14 @@ TARGET_KERNEL_SOURCE := kernel/google/msm-4.14
 #   sunfish-ksunext-susfs)
 #       -> Clang 12 (r416183b); the platform Clang 21's stricter diagnostics
 #          reject that older source. Swap the two lines below when building those.
-TARGET_KERNEL_CLANG_PATH := $(abspath prebuilts/clang/host/$(HOST_PREBUILT_TAG)/clang-r563880c)
-#TARGET_KERNEL_CLANG_PATH := $(abspath prebuilts/clang/kernel/$(HOST_PREBUILT_TAG)/clang-r416183b)
+#TARGET_KERNEL_CLANG_PATH := $(abspath prebuilts/clang/host/$(HOST_PREBUILT_TAG)/clang-r563880c)
+TARGET_KERNEL_CLANG_PATH := $(abspath prebuilts/clang/kernel/$(HOST_PREBUILT_TAG)/clang-r416183b)
 TARGET_NEEDS_DTBOIMAGE := true
 
 # Partitions
 AB_OTA_PARTITIONS += \
     vendor
-BOARD_VENDORIMAGE_FILE_SYSTEM_TYPE := ext4
+BOARD_VENDORIMAGE_FILE_SYSTEM_TYPE := erofs
 
 # SELinux
 BOARD_SEPOLICY_DIRS += device/google/sunfish/sepolicy-lineage/dynamic
