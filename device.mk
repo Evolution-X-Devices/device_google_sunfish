@@ -294,7 +294,7 @@ PRODUCT_PROPERTY_OVERRIDES += \
     persist.vendor.radio.snapshot_timer=0
 
 PRODUCT_PACKAGES += \
-    hwcomposer_qcom_sunfish \
+    hwcomposer.qcom \
     android.hardware.graphics.composer@2.4-service-sm8150 \
     gralloc.qcom \
     android.hardware.graphics.mapper@3.0-impl-qti-display \
