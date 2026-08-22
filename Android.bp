@@ -35,3 +35,17 @@ license {
     ],
     // large-scale-change unable to identify any license_text files
 }
+
+// Two 32-bit vendor libraries (libsueznanoappclients.so and
+// vendor-pixelatoms-cpp.so itself) carry a DT_NEEDED on "pixelatoms-cpp.so",
+// but only the 64-bit copy is installed - /vendor/lib/pixelatoms-cpp.so does
+// not exist. Alias the name onto the same-arch vendor- build, matching what
+// lopro104 does in proprietary_vendor_google_sunfish fb6c4184. The 64-bit side
+// needs no symlink: we install a real /vendor/lib64/pixelatoms-cpp.so.
+install_symlink {
+    name: "vendor_lib_pixelatoms-cpp_so",
+    soc_specific: true,
+    installed_location: "lib/pixelatoms-cpp.so",
+    symlink_target: "/vendor/lib/vendor-pixelatoms-cpp.so",
+    required: ["vendor-pixelatoms-cpp"],
+}
