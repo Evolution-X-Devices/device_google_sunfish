@@ -310,11 +310,6 @@ PRODUCT_PROPERTY_OVERRIDES += \
 PRODUCT_PACKAGES += \
     vendor.qti.hardware.memtrack-service
 
-# 32-bit alias for pixelatoms-cpp.so (see Android.bp) - the 64-bit copy is a
-# real file, but /vendor/lib/pixelatoms-cpp.so is otherwise missing.
-PRODUCT_PACKAGES += \
-    vendor_lib_pixelatoms-cpp_so
-
 # Bluetooth SoC
 PRODUCT_PROPERTY_OVERRIDES += \
     vendor.qcom.bluetooth.soc=cherokee
