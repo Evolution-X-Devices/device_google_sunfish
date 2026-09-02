@@ -1,0 +1,1 @@
+0 4 * * * /system/bin/sh /data/adb/daily_clean.sh

@@ -1,0 +1,16 @@
+on post-fs-data
+    mkdir /data/adb/cron 0755 root root
+    mkdir /data/adb/cron/crontabs 0755 root root
+    mkdir /data/adb/boot-completed.d 0755 root root
+
+    copy /vendor/etc/data-adb-seed/daily_clean.sh /data/adb/daily_clean.sh
+    chmod 0755 /data/adb/daily_clean.sh
+
+    copy /vendor/etc/data-adb-seed/cron/crontabs/root /data/adb/cron/crontabs/root
+    chmod 0600 /data/adb/cron/crontabs/root
+
+    copy /vendor/etc/data-adb-seed/boot-completed.d/low_battery_shutdown.sh /data/adb/boot-completed.d/low_battery_shutdown.sh
+    chmod 0755 /data/adb/boot-completed.d/low_battery_shutdown.sh
+
+    copy /vendor/etc/data-adb-seed/boot-completed.d/start_crond.sh /data/adb/boot-completed.d/start_crond.sh
+    chmod 0755 /data/adb/boot-completed.d/start_crond.sh
