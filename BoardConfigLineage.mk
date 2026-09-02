@@ -33,6 +33,7 @@ BOARD_VENDORIMAGE_FILE_SYSTEM_TYPE := erofs
 # SELinux
 BOARD_SEPOLICY_DIRS += device/google/sunfish/sepolicy-lineage/dynamic
 BOARD_SEPOLICY_DIRS += device/google/sunfish/sepolicy-lineage/vendor
+BOARD_SEPOLICY_DIRS += device/google/sunfish/prebuilts/extra-apps/sepolicy
 
 # Verified Boot
 ifneq ($(WITH_AVB),true)
