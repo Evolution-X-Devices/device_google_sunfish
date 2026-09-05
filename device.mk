@@ -678,6 +678,14 @@ PRODUCT_VENDOR_PROPERTIES += ro.soc.manufacturer=Qualcomm
 PRODUCT_VENDOR_PROPERTIES += ro.soc.model=SM7150
 
 # Prebuilt apps for the product partition
+ifeq ($(BISECT_ONLY_KSU),1)
+# Fast-iteration mode for kernel/KSU bisect testing (export BISECT_ONLY_KSU=1
+# before lunch/mka): ship only KernelSUNext, skipping the other ~19 prebuilt
+# apps to cut productimage build time and sideload zip size. Not a full
+# build -- don't use this for "does everything still work" testing.
+USER_APPS_BP := device/google/sunfish/prebuilts/extra-apps/prebuilt/KernelSUNext.apk
+PRODUCT_PACKAGES += $(foreach apk,$(USER_APPS_BP),$(basename $(notdir $(apk))))
+else
 USER_APPS_BP := $(wildcard device/google/sunfish/prebuilts/extra-apps/prebuilt/*.apk)
 PRODUCT_PACKAGES += $(foreach apk,$(USER_APPS_BP),$(basename $(notdir $(apk))))
 # .apks (bundletool APK Set, android_app_set modules) -- split-config apps like Gboard
@@ -687,6 +695,7 @@ PRODUCT_PACKAGES += $(foreach apkset,$(USER_APP_SETS_BP),$(basename $(notdir $(a
 # filename including extension, unlike the .apk/.apks rules above.
 USER_APP_PERMS_BP := $(wildcard device/google/sunfish/prebuilts/extra-apps/prebuilt/privapp-permissions-*.xml)
 PRODUCT_PACKAGES += $(foreach xml,$(USER_APP_PERMS_BP),$(notdir $(xml)))
+endif
 # KernelSUNext's bundled libksud.so never gets extracted for a pre-baked
 # /product/app install (PackageManager only extracts lib/<abi>/*.so on a
 # normal /data/app install) -- the app's own code exec's a hardcoded path
