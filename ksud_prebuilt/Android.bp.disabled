@@ -1,0 +1,17 @@
+// libksud.so bundled inside KernelSUNext.apk is really an exec'd helper
+// binary, not a JNI shared lib -- but PackageManager only extracts
+// lib/<abi>/*.so from a normal /data/app install, never for a pre-baked
+// /product/app system package. The app's own code exec's a hardcoded real
+// path expecting extraction to have happened, so ship the binary as its
+// own installed file at that exact path instead.
+cc_prebuilt_binary {
+    name: "libksud_KernelSUNext_prebuilt",
+    stem: "libksud.so",
+    srcs: ["libksud.so"],
+    product_specific: true,
+    relative_install_path: "../app/KernelSUNext/lib/arm64",
+    strip: {
+        none: true,
+    },
+    check_elf_files: false,
+}

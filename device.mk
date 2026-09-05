@@ -687,6 +687,23 @@ PRODUCT_PACKAGES += $(foreach apkset,$(USER_APP_SETS_BP),$(basename $(notdir $(a
 # filename including extension, unlike the .apk/.apks rules above.
 USER_APP_PERMS_BP := $(wildcard device/google/sunfish/prebuilts/extra-apps/prebuilt/privapp-permissions-*.xml)
 PRODUCT_PACKAGES += $(foreach xml,$(USER_APP_PERMS_BP),$(notdir $(xml)))
+# KernelSUNext's bundled libksud.so never gets extracted for a pre-baked
+# /product/app install (PackageManager only extracts lib/<abi>/*.so on a
+# normal /data/app install) -- the app's own code exec's a hardcoded path
+# expecting that extraction to have happened, so ship the binary as its own
+# copied file at that exact path instead. Soong prebuilt module types
+# (prebuilt_etc, prebuilt_root, cc_prebuilt_binary + relative_install_path)
+# all reject or can't express escaping to an arbitrary nested product path,
+# so this uses plain PRODUCT_COPY_FILES instead -- which requires
+# BUILD_BROKEN_ELF_PREBUILT_PRODUCT_COPY_FILES := true, set in
+# BoardConfigLineage.mk (this flag is board-scoped, not product-scoped --
+# setting it here in device.mk is silently ignored by board_config.mk).
+# Also needs a config.fs entry to force the +x bit -- see comment there;
+# PRODUCT_COPY_FILES's own copy rule uses plain non-preserving `cp`, and
+# separately the image-packaging step doesn't mirror the staging dir's
+# host-fs permissions either, so config.fs is the only layer that sticks.
+PRODUCT_COPY_FILES += \
+    device/google/sunfish/ksud_prebuilt/libksud.so:$(TARGET_COPY_OUT_PRODUCT)/app/KernelSUNext/lib/arm64/libksud.so
 
 # Update soong config namespace
 -include vendor/google/build/soong/soong_config_namespace/qcril_oemhook.mk

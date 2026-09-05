@@ -32,6 +32,20 @@ value:2905
 [AID_VENDOR_QRTR]
 value:2906
 
+# libksud.so, bundled inside KernelSUNext.apk but shipped separately via
+# PRODUCT_COPY_FILES in device.mk (see comment there) since a pre-baked
+# /product/app install never gets its native libs extracted. The
+# image-packaging step doesn't mirror the staging directory's actual
+# host-fs permissions, so the +x bit must be forced here explicitly --
+# all four of mode/user/group/caps are required by fs_config_generator.py
+# for a path section to be recognized (caps alone being absent is enough
+# to make it fall through as an "Invalid section").
+[product/app/KernelSUNext/lib/arm64/libksud.so]
+mode: 0755
+user: AID_ROOT
+group: AID_ROOT
+caps: 0
+
 [vendor/bin/cnss-daemon]
 mode: 0755
 user: AID_SYSTEM
