@@ -4,6 +4,9 @@
 # SPDX-License-Identifier: Apache-2.0
 #
 
+# Inside BoardConfig.mk
+#TARGET_KERNEL_ADDITIONAL_FLAGS := KCFLAGS="-DCCACHE_FORCE_UPDATE_1"
+
 # Kernel
 BOARD_KERNEL_IMAGE_NAME := Image.lz4
 TARGET_COMPILE_WITH_MSM_KERNEL := true
@@ -21,8 +24,18 @@ TARGET_KERNEL_SOURCE := kernel/google/msm-4.14
 #   sunfish-ksunext-susfs)
 #       -> Clang 12 (r416183b); the platform Clang 21's stricter diagnostics
 #          reject that older source. Swap the two lines below when building those.
+#
+#   kernel branch "compiler" (clang-20 port) -- VERIFIED BOOTING 2026-09-06
+#       -> Clang 20 (r547379), the line active below. This is byte-for-byte
+#          the same toolchain the official EvolutionX 11.5.3 sunfish OTA was
+#          built with (banner: "Android (13290119, +pgo, +bolt, +lto, +mlgo,
+#          based on r547379) clang version 20.0.0"), so it is known to build
+#          this kernel family. lopro ships 4.14.357 built with Clang 21.
+#          Built clean first try and booted in 28s with CFI_CLANG=y,
+#          LTO_CLANG=y, FTRACE=y; zygote + zygisksu healthy.
+TARGET_KERNEL_CLANG_PATH := $(abspath prebuilts/clang/host/$(HOST_PREBUILT_TAG)/clang-r547379)
 #TARGET_KERNEL_CLANG_PATH := $(abspath prebuilts/clang/host/$(HOST_PREBUILT_TAG)/clang-r563880c)
-TARGET_KERNEL_CLANG_PATH := $(abspath prebuilts/clang/kernel/$(HOST_PREBUILT_TAG)/clang-r416183b)
+#TARGET_KERNEL_CLANG_PATH := $(abspath prebuilts/clang/kernel/$(HOST_PREBUILT_TAG)/clang-r416183b)
 TARGET_NEEDS_DTBOIMAGE := true
 
 # Partitions
