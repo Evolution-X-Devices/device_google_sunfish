@@ -15,3 +15,7 @@ debug.hwui.target_cpu_time_percent=30
 # ScrollOptimizer
 persist.sys.perf.scroll_opt=true
 persist.sys.perf.scroll_opt.heavy_app=1
+
+persist.vendor.qcom.bluetooth.soc=cherokee
+persist.vendor.qcom.bluetooth.enable.splita2dp=true
+ro.vendor.qti.am.res_boost_limit=2

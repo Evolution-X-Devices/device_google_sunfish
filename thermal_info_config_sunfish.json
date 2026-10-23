@@ -3,244 +3,134 @@
         {
             "Name":"cpu-0-0-usr",
             "Type":"CPU",
-            "HotThreshold":[
-                "NAN",
-                "NAN",
-                "NAN",
-                95.0,
-                "NAN",
-                "NAN",
-                125.0
-            ],
+            "HotThreshold":["NAN","NAN","NAN",95.0,"NAN","NAN",125.0],
             "VrThreshold":"NAN",
             "Multiplier":0.001
         },
         {
             "Name":"cpu-0-1-usr",
             "Type":"CPU",
-            "HotThreshold":[
-                "NAN",
-                "NAN",
-                "NAN",
-                95.0,
-                "NAN",
-                "NAN",
-                125.0
-            ],
+            "HotThreshold":["NAN","NAN","NAN",95.0,"NAN","NAN",125.0],
             "VrThreshold":"NAN",
             "Multiplier":0.001
         },
         {
             "Name":"cpu-0-2-usr",
             "Type":"CPU",
-            "HotThreshold":[
-                "NAN",
-                "NAN",
-                "NAN",
-                95.0,
-                "NAN",
-                "NAN",
-                125.0
-            ],
+            "HotThreshold":["NAN","NAN","NAN",95.0,"NAN","NAN",125.0],
             "VrThreshold":"NAN",
             "Multiplier":0.001
         },
         {
             "Name":"cpu-0-3-usr",
             "Type":"CPU",
-            "HotThreshold":[
-                "NAN",
-                "NAN",
-                "NAN",
-                95.0,
-                "NAN",
-                "NAN",
-                125.0
-            ],
+            "HotThreshold":["NAN","NAN","NAN",95.0,"NAN","NAN",125.0],
             "VrThreshold":"NAN",
             "Multiplier":0.001
         },
         {
             "Name":"cpu-0-4-usr",
             "Type":"CPU",
-            "HotThreshold":[
-                "NAN",
-                "NAN",
-                "NAN",
-                95.0,
-                "NAN",
-                "NAN",
-                125.0
-            ],
+            "HotThreshold":["NAN","NAN","NAN",95.0,"NAN","NAN",125.0],
             "VrThreshold":"NAN",
             "Multiplier":0.001
         },
         {
             "Name":"cpu-0-5-usr",
             "Type":"CPU",
-            "HotThreshold":[
-                "NAN",
-                "NAN",
-                "NAN",
-                95.0,
-                "NAN",
-                "NAN",
-                125.0
-            ],
+            "HotThreshold":["NAN","NAN","NAN",95.0,"NAN","NAN",125.0],
             "VrThreshold":"NAN",
             "Multiplier":0.001
         },
         {
             "Name":"cpu-1-0-usr",
             "Type":"CPU",
-            "HotThreshold":[
-                "NAN",
-                "NAN",
-                "NAN",
-                95.0,
-                "NAN",
-                "NAN",
-                125.0
-            ],
+            "HotThreshold":["NAN","NAN","NAN",95.0,"NAN","NAN",125.0],
             "VrThreshold":"NAN",
             "Multiplier":0.001
         },
         {
             "Name":"cpu-1-1-usr",
             "Type":"CPU",
-            "HotThreshold":[
-                "NAN",
-                "NAN",
-                "NAN",
-                95.0,
-                "NAN",
-                "NAN",
-                125.0
-            ],
+            "HotThreshold":["NAN","NAN","NAN",95.0,"NAN","NAN",125.0],
             "VrThreshold":"NAN",
             "Multiplier":0.001
         },
         {
             "Name":"cpu-1-2-usr",
             "Type":"CPU",
-            "HotThreshold":[
-                "NAN",
-                "NAN",
-                "NAN",
-                95.0,
-                "NAN",
-                "NAN",
-                125.0
-            ],
+            "HotThreshold":["NAN","NAN","NAN",95.0,"NAN","NAN",125.0],
             "VrThreshold":"NAN",
             "Multiplier":0.001
         },
         {
             "Name":"cpu-1-3-usr",
             "Type":"CPU",
-            "HotThreshold":[
-                "NAN",
-                "NAN",
-                "NAN",
-                95.0,
-                "NAN",
-                "NAN",
-                125.0
-            ],
+            "HotThreshold":["NAN","NAN","NAN",95.0,"NAN","NAN",125.0],
             "VrThreshold":"NAN",
             "Multiplier":0.001
         },
         {
             "Name":"gpuss-0-usr",
             "Type":"GPU",
-            "HotThreshold":[
-                "NAN",
-                "NAN",
-                "NAN",
-                95.0,
-                "NAN",
-                "NAN",
-                125.0
-            ],
+            "HotThreshold":["NAN","NAN","NAN",95.0,"NAN","NAN",125.0],
             "VrThreshold":"NAN",
             "Multiplier":0.001
         },
         {
             "Name":"gpuss-1-usr",
             "Type":"GPU",
-            "HotThreshold":[
-                "NAN",
-                "NAN",
-                "NAN",
-                95.0,
-                "NAN",
-                "NAN",
-                125.0
-            ],
+            "HotThreshold":["NAN","NAN","NAN",95.0,"NAN","NAN",125.0],
             "VrThreshold":"NAN",
             "Multiplier":0.001
         },
         {
             "Name":"battery",
             "Type":"BATTERY",
-            "HotThreshold":[
-                "NAN",
-                "NAN",
-                "NAN",
-                "NAN",
-                "NAN",
-                "NAN",
-                60.0
-            ],
+            "HotThreshold":["NAN","NAN","NAN","NAN","NAN","NAN",60.0],
             "VrThreshold":"NAN",
             "Multiplier":0.001
         },
         {
             "Name":"skin-therm-monitor",
             "Type":"SKIN",
-            "HotThreshold":[
-                "NAN",
-                43.0,
-                45.0,
-                48.0,
-                50.0,
-                54.0,
-                58.0
-            ],
-            "HotHysteresis":[
-                0.0,
-                1.9,
-                1.9,
-                1.9,
-                1.9,
-                1.9,
-                1.9
-            ],
+            "HotThreshold":["NAN",43.0,45.0,48.0,50.0,54.0,58.0],
+            "HotHysteresis":[0.0,1.9,1.9,1.9,1.9,1.9,1.9],
             "VrThreshold":"NAN",
             "Multiplier":0.001,
-            "Monitor":true
+            "Monitor":true,
+            "Actions":[
+                {
+                    "Type":"CPU",
+                    "Name":"thermal-cpufreq-0",
+                    "TriggerOffsets":[0.0,1.0,2.0,3.0,4.0,5.0,6.0],
+                    "ExpectedValues":[0,2,4,6,8,10,12]
+                },
+                {
+                    "Type":"CPU",
+                    "Name":"thermal-cpufreq-7",
+                    "TriggerOffsets":[0.0,1.0,2.0,3.0,4.0,5.0,6.0],
+                    "ExpectedValues":[0,2,4,6,8,10,12]
+                },
+                {
+                    "Type":"GPU",
+                    "Name":"thermal-devfreq-0",
+                    "TriggerOffsets":[0.0,1.0,2.0,3.0,4.0,5.0,6.0],
+                    "ExpectedValues":[0,1,2,3,4,5,6]
+                },
+                {
+                    "Type":"BATTERY",
+                    "Name":"fcc",
+                    "TriggerOffsets":[0.0,1.0,2.0,3.0,4.0,5.0,6.0],
+                    "ExpectedValues":[0,1,2,3,4,5,6]
+                }
+            ]
         },
-	{
+        {
             "Name":"usbc-therm-monitor",
             "Type":"USB_PORT",
-            "HotThreshold":[
-                "NAN",
-                "NAN",
-                "NAN",
-                "NAN",
-                "NAN",
-                "70.0",
-                "NAN"
-            ],
-            "HotHysteresis":[
-                0.0,
-                0.0,
-                0.0,
-                0.0,
-                0.0,
-                5.0,
-                0.0
-            ],
+            "HotThreshold":["NAN","NAN","NAN","NAN","NAN",70.0,"NAN"],
+            "HotHysteresis":[0.0,0.0,0.0,0.0,0.0,5.0,0.0],
             "VrThreshold":"NAN",
             "Multiplier":0.001,
             "Monitor":true
@@ -265,3 +155,4 @@
         }
     ]
 }
+

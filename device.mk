@@ -121,7 +121,7 @@ PRODUCT_PROPERTY_OVERRIDES += \
 AB_OTA_POSTINSTALL_CONFIG += \
     RUN_POSTINSTALL_system=true \
     POSTINSTALL_PATH_system=system/bin/otapreopt_script \
-    FILESYSTEM_TYPE_system=ext4 \
+    FILESYSTEM_TYPE_system=erofs \
     POSTINSTALL_OPTIONAL_system=true
 
 PRODUCT_PACKAGES += \
@@ -130,7 +130,7 @@ PRODUCT_PACKAGES += \
 AB_OTA_POSTINSTALL_CONFIG += \
     RUN_POSTINSTALL_vendor=true \
     POSTINSTALL_PATH_vendor=bin/checkpoint_gc \
-    FILESYSTEM_TYPE_vendor=ext4 \
+    FILESYSTEM_TYPE_vendor=erofs \
     POSTINSTALL_OPTIONAL_vendor=true
 
 PRODUCT_PROPERTY_OVERRIDES += \
@@ -233,6 +233,7 @@ PRODUCT_PROPERTY_OVERRIDES += \
     ro.vendor.display.sensortype=2 \
     vendor.display.foss.config=1 \
     vendor.display.foss.config_path=/vendor/etc/FOSSConfig.xml \
+    vendor.display.lbe.supported=1 \
     vendor.display.qdcm.mode_combine=1
 
 # camera hal buffer management
@@ -303,14 +304,6 @@ PRODUCT_PROPERTY_OVERRIDES += \
     ro.hardware.gralloc=qcom \
     ro.hardware.hwcomposer=qcom
 
-# Light HAL
-PRODUCT_PACKAGES += \
-    lights.qcom \
-    hardware.google.light@1.1-service
-
-PRODUCT_PROPERTY_OVERRIDES += \
-    ro.hardware.lights=qcom
-
 # Memtrack HAL
 PRODUCT_PACKAGES += \
     vendor.qti.hardware.memtrack-service
@@ -350,9 +343,10 @@ PRODUCT_PACKAGES += \
 PRODUCT_PACKAGES += \
     android.hardware.usb.gadget-service.sunfish
 
+# Health
 PRODUCT_PACKAGES += \
-    android.hardware.health@2.1-impl-sunfish \
-    android.hardware.health@2.1-service
+    android.hardware.health-service.sunfish \
+    android.hardware.health-service.sunfish_recovery
 
 # Storage health HAL
 PRODUCT_PACKAGES += \
@@ -471,7 +465,7 @@ PRODUCT_PACKAGES += \
     android.hardware.audio@7.0-impl:32 \
     android.hardware.audio.effect@7.0-impl:32 \
     android.hardware.soundtrigger@2.3-impl \
-    android.hardware.bluetooth.audio@2.0-impl \
+    android.hardware.bluetooth.audio-impl \
     android.hardware.audio.service
 
 PRODUCT_COPY_FILES += \
@@ -492,11 +486,6 @@ $(call inherit-product, frameworks/native/build/phone-xhdpi-6144-dalvik-heap.mk)
 # Use the default charger mode images
 PRODUCT_PACKAGES += \
     charger_res_images
-
-# Dumpstate HAL
-PRODUCT_PACKAGES += \
-    android.hardware.dumpstate@1.1-service.sunfish
-
 
 # Storage: for factory reset protection feature
 PRODUCT_PROPERTY_OVERRIDES += \

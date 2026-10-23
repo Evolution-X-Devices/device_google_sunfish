@@ -150,3 +150,35 @@ firmware_directories /vendor/firmware_mnt/image/
 # Charger
 /sys/class/power_supply/sm7150_bms charge_disable 0660 system system
 /sys/devices/platform/soc/c440000.qcom,spmi/spmi-0/spmi0-00/c440000.qcom,spmi:qcom,pm6150@0:google,bms/power_supply/sm7150_bms charge_disable 0660 system system
+
+# Battery state of health, on the QG gauge ("bms", qpnp,qg -- NOT the sm7150_bms
+# node above, which is the fg-gen4 gauge). hvdcp_opti writes these back so the
+# values survive a reboot, and every write was failing:
+#
+#   E SOH-D: Couldnt write /sys/class/power_supply/bms/soh rc = -13
+#   E SOH-D: Couldnt write /sys/class/power_supply/bms/esr_actual rc = -13
+#   E SOH-D: Couldnt write /sys/class/power_supply/bms/esr_nominal rc = -13
+#
+# rc -13 is EACCES, and it is DAC, not sepolicy (no avc denials for these; the
+# nodes are labeled sysfs_batteryinfo and genfs already covers them). The nodes
+# come up 0644 system:system. hvdcp_opti runs "user root" but its .rc declares
+# "capabilities BLOCK_SUSPEND WAKE_ALARM", and an explicit capabilities line
+# bounds the set, so it does NOT hold CAP_DAC_OVERRIDE and cannot ignore the
+# mode. As uid 0 it is not the owner (system), and 0644 grants the group no
+# write, so every write is refused.
+#
+# The daemon's gid is system, so adding group write is all that is needed.
+# 0664 rather than the 0660 used above: 0664 is a strict superset of the current
+# 0644, so nothing that reads these today can lose access.
+#
+# Worth fixing rather than silencing: the kernel means these to be written.
+# qg_property_is_writeable() in qpnp-qg.c returns 1 for POWER_SUPPLY_PROP_SOH,
+# _ESR_ACTUAL and _ESR_NOMINAL, which is also why power_supply_core created them
+# 0644 (writeable) instead of 0444. With the writes failing, state-of-health and
+# ESR simply never persist.
+/sys/class/power_supply/bms soh 0664 system system
+/sys/class/power_supply/bms esr_actual 0664 system system
+/sys/class/power_supply/bms esr_nominal 0664 system system
+/sys/devices/platform/soc/c440000.qcom,spmi/spmi-0/spmi0-00/c440000.qcom,spmi:qcom,pm6150@0:qpnp,qg/power_supply/bms soh 0664 system system
+/sys/devices/platform/soc/c440000.qcom,spmi/spmi-0/spmi0-00/c440000.qcom,spmi:qcom,pm6150@0:qpnp,qg/power_supply/bms esr_actual 0664 system system
+/sys/devices/platform/soc/c440000.qcom,spmi/spmi-0/spmi0-00/c440000.qcom,spmi:qcom,pm6150@0:qpnp,qg/power_supply/bms esr_nominal 0664 system system

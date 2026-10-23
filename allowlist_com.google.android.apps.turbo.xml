@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Copyright (C) 2026 The LineageOS Project
+
+     Licensed under the Apache License, Version 2.0 (the "License");
+     you may not use this file except in compliance with the License.
+     You may obtain a copy of the License at
+
+          http://www.apache.org/licenses/LICENSE-2.0
+
+     Unless required by applicable law or agreed to in writing, software
+     distributed under the License is distributed on an "AS IS" BASIS,
+     WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+     See the License for the specific language governing permissions and
+     limitations under the License.
+-->
+<config>
+    <!-- Device Health Services (Adaptive Battery). vendor/gms ships
+         /product/etc/sysconfig/google.xml, which grants this package only the
+         weaker
+
+             <allow-in-power-save-except-idle package="com.google.android.apps.turbo" />
+
+         so it is still restricted once the device enters Doze idle. Grant the
+         full exemption, plus an exemption from Data Saver. Both entries are
+         additive to what google.xml already declares; the parser merges every
+         file in sysconfig/, so google.xml does not need editing. -->
+    <allow-in-power-save package="com.google.android.apps.turbo" />
+    <allow-in-data-usage-save package="com.google.android.apps.turbo" />
+</config>

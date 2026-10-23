@@ -1,10 +1,19 @@
 # Android fstab file.
 
 #<src>                                                  <mnt_point>            <type>  <mnt_flags and options>                              <fs_mgr_flags>
-system                                                  /system                ext4    ro,barrier=1                                         wait,slotselect,avb=vbmeta_system,logical,first_stage_mount
-system_ext                                              /system_ext            ext4    ro,barrier=1                                         wait,slotselect,avb=vbmeta_system,logical,first_stage_mount
-vendor                                                  /vendor                ext4    ro,barrier=1                                         wait,slotselect,avb=vbmeta,logical,first_stage_mount
-product                                                 /product               erofs    ro,barrier=1                                         wait,slotselect,avb,logical,first_stage_mount
+# EROFS for the logical partitions, matching Lopro2030's 11.9 ROM ("I set all of
+# my images to EROFS in my device config"). This file is copied VERBATIM into the
+# boot ramdisk (device.mk) and drives first-stage mount -- the fs type is NOT
+# derived from BOARD_*IMAGE_FILE_SYSTEM_TYPE. With ext4 here against his erofs
+# partitions, first-stage mount fails and init falls back to RECOVERY, which is
+# exactly what a self-built boot.img did on his ROM.
+# Note: barrier=1 is an ext4-only option and must not be passed to erofs.
+# If you build a FULL ROM from this tree, also set the matching
+# BOARD_SYSTEMIMAGE/SYSTEM_EXTIMAGE/VENDORIMAGE_FILE_SYSTEM_TYPE := erofs.
+system                                                  /system                erofs   ro                                                   wait,slotselect,avb=vbmeta_system,logical,first_stage_mount
+system_ext                                              /system_ext            erofs   ro                                                   wait,slotselect,avb=vbmeta_system,logical,first_stage_mount
+vendor                                                  /vendor                erofs   ro                                                   wait,slotselect,avb=vbmeta,logical,first_stage_mount
+product                                                 /product               erofs   ro                                                   wait,slotselect,avb,logical,first_stage_mount
 /dev/block/by-name/metadata                             /metadata              ext4    noatime,nosuid,nodev,discard,data=journal,commit=1   wait,formattable,first_stage_mount,check,metadata_csum
 /dev/block/bootdevice/by-name/modem                     /vendor/firmware_mnt   vfat    ro,shortname=lower,uid=0,gid=1000,dmask=227,fmask=337,context=u:object_r:firmware_file:s0 wait,slotselect
 /dev/block/bootdevice/by-name/misc                      /misc                  emmc    defaults                                             defaults

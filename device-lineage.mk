@@ -19,6 +19,10 @@ $(call inherit-product, hardware/qcom-caf/common/common.mk)
 PRODUCT_COPY_FILES += \
     $(LOCAL_PATH)/allowlist_com.google.android.as.xml:$(TARGET_COPY_OUT_PRODUCT)/etc/sysconfig/allowlist_com.google.android.as.xml
 
+# Device Health Services background exemptions
+PRODUCT_COPY_FILES += \
+    $(LOCAL_PATH)/allowlist_com.google.android.apps.turbo.xml:$(TARGET_COPY_OUT_PRODUCT)/etc/sysconfig/allowlist_com.google.android.apps.turbo.xml
+
 # Camera
 PRODUCT_PRODUCT_PROPERTIES += \
     ro.vendor.camera.extensions.package=com.google.android.apps.camera.services \
@@ -43,6 +47,7 @@ PRODUCT_PACKAGES += \
 
 # Kernel
 PRODUCT_ENABLE_UFFD_GC := true
+PRODUCT_OTA_ENFORCE_VINTF_KERNEL_REQUIREMENTS := false
 
 # Lineage Health
 include hardware/google/pixel/lineage_health/device.mk

@@ -30,3 +30,7 @@ PRODUCT_BUILD_PROP_OVERRIDES += \
 TARGET_USES_MINI_GAPPS := true
 
 $(call inherit-product, vendor/google/sunfish/sunfish-vendor.mk)
+
+# Ship APEXes uncompressed: compressed .capex are unpacked to /data on the first
+# boot after every update (~5 s on sunfish). Costs ~150 MB more in super.
+PRODUCT_COMPRESSED_APEX := false
